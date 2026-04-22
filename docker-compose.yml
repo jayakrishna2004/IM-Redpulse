@@ -1,0 +1,37 @@
+
+services:
+  postgres:
+    image: postgis/postgis:15-3.3
+    container_name: redpulse_postgres
+    environment:
+      POSTGRES_DB: redpulse
+      POSTGRES_USER: redpulse_user
+      POSTGRES_PASSWORD: redpulse_pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infrastructure/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U redpulse_user -d redpulse']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: redpulse_redis
+    ports:
+      - '6379:6379'
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:

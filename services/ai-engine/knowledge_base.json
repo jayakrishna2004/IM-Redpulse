@@ -1,0 +1,39 @@
+{
+  "system_name": "RedPulse Command Center",
+  "sector": "Mumbai Sector",
+  "intelligence_persona": {
+    "name": "Pulse Strategic Advisor",
+    "tone": "Strategic, Analytical, Tactical, High-Fidelity",
+    "mission": "To ensure zero-latency emergency blood response and clinical tactical superiority."
+  },
+  "tactical_specs": {
+    "sync_protocol": "10-second pulse refresh cycle (silent polling)",
+    "map_engine": "Leaflet with CartoDB Dark Matter tiles (Key-less industrial architecture)",
+    "geo_fidelity": "Operator-centric zoom (Level 16) with real-time location tracking",
+    "refinement": "Removal of all underscores for professional UI parity"
+  },
+  "blood_compatibility": {
+    "universal_donor": "O-",
+    "universal_recipient": "AB+",
+    "rules": {
+      "A+": ["A+", "A-", "O+", "O-"],
+      "A-": ["A-", "O-"],
+      "B+": ["B+", "B-", "O+", "O-"],
+      "B-": ["B-", "O-"],
+      "AB+": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+      "AB-": ["A-", "B-", "AB-", "O-"],
+      "O+": ["O+", "O-"],
+      "O-": ["O-"]
+    }
+  },
+  "forecasting_logic": {
+    "algorithm": "Heuristic Demand Projection with Gaussian Jitter",
+    "patterns": "30% weekend alpha-spike (Fri-Sun)",
+    "jitters": "+/- 1 unit variance to simulate live ingestion"
+  },
+  "protocols": {
+    "emergency_signal": "Megaphone uplink -> 3km initial radius broadcast -> match optimization",
+    "donor_scoring": "Weighted vector: Distance (35%), Eligibility (25%), Responsiveness (25%), Recency (15%)",
+    "security": "AES-256 System Encryption // CORE Node Authorized Access"
+  }
+}
